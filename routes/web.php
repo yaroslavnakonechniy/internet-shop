@@ -17,7 +17,7 @@ Route::get('/', 'App\Http\Controllers\MainController@index');
 
 Route::get('/categories', 'App\Http\Controllers\MainController@categories');
 
-Route::get('/mobiles/{product?}', 'App\Http\Controllers\MainController@product');
+//Route::get('/mobiles/{product?}', 'App\Http\Controllers\MainController@product');
 //Route::get('/portable/{product?}', 'App\Http\Controllers\MainController@product');
 //Route::get('/appliances/{product?}', 'App\Http\Controllers\MainController@product');
 
