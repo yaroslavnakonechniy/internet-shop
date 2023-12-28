@@ -12,7 +12,7 @@
         <h2>{{$product}}</h2>
 
         
-        <a class="btn btn-success" href="{{route('basket')}}">Добавить в корзину</a>
+        <a class="btn btn-success" href="{{route('basket-add', $product)}}">Добавить в корзину</a>
         
     </div>
 </div>
