@@ -20,7 +20,12 @@ Auth::routes([
 ]);
 
 Route::get('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('get-logout');
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
+Route::group(['midlleware' => 'auth'], function(){
+    Route::get('/orders', 'App\Http\Controllers\Admin\OrderController@index')->name('home');
+});
+
+
 
 Route::get('/', 'App\Http\Controllers\MainController@index')->name('index');
 Route::get('/categories', 'App\Http\Controllers\MainController@categories')->name('categories');
@@ -39,4 +44,3 @@ Route::get('/{category}/{product?}', 'App\Http\Controllers\MainController@produc
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
