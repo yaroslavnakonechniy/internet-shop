@@ -31,7 +31,7 @@
   </div>
   <div class="form-group">
     <label for="img">Img</label>
-    <input type="file" class="form-control" id="img" name="img" value="@isset($category){{$category->image}} @endisset" placeholder="Choose file">
+    <input type="file" class="form-control" id="image" name="image" value="@isset($category){{$category->image}} @endisset" placeholder="Choose file">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
