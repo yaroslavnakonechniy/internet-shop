@@ -5,14 +5,7 @@
 @section('content')
     <div class="starter-template">
         <h1>Корзина</h1>
-        @if(session()->has('success'))
-            <p class="alert alert-success">{{session()->get('success')}}</p>
-        
-        @endif
-        @if(session()->has('warning'))
-            <p class="alert alert-warning">{{session()->get('warning')}}</p>
-        
-        @endif
+
         <p>Оформление заказа</p>
         <div class="panel">
             <table class="table table-striped">
@@ -38,13 +31,13 @@
                                 <form action="{{ route('basket-remove', $product) }}" method="POST">
                                     <button type="submit" class="btn btn-danger">
                                        
-                                       <span class="glyphicon glyphicon-minus" aria-hidden="true">-</span></button>
+                                       <span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
                                     @csrf
                                 </form>
                                 <form action="{{ route('basket-add', $product) }}" method="POST">
                                     <button type="submit" class="btn btn-success">
                                        
-                                       <span class="glyphicon glyphicon-plus" aria-hidden="true">+</span></button>
+                                       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                                     @csrf
                                 </form>
                             </div>
