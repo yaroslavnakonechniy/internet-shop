@@ -19,14 +19,23 @@
 
   <div class="form-group">
     <label for="name">Name</label>
+    @error('name')
+      <div class="alert alert-danger">{{$message}}</div>
+    @enderror
     <input type="text" class="form-control" id="name" name="name" value="@isset($category){{ $category->code }}@endisset"  placeholder="Enter name">
   </div>
   <div class="form-group">
     <label for="code">code</label>
-    <input type="text" class="form-control" id="code" name="code" value="@isset($category){{$category->code}} @endisset"  placeholder="Enter code">
+    @error('code')
+      <div class="alert alert-danger">{{$message}}</div>
+    @enderror
+    <input type="text" class="form-control" id="code" name="code" value="{{old('code', isset($category) ? $category->code : null )}}"  placeholder="Enter code">
   </div>
   <div class="form-group">
     <label for="description">description</label>
+    @error('description')
+      <div class="alert alert-danger">{{$message}}</div>
+    @enderror
     <input type="text" class="form-control" id="description" name="description" value="@isset($category){{$category->description}} @endisset"  placeholder="Enter description">
   </div>
   <div class="form-group">
