@@ -15,3 +15,8 @@ table {
 div.thumbnail img {
     max-height: 200px;
 }
+
+.active{
+    background-color: rebeccapurple;
+    color:red;
+}
