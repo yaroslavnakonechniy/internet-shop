@@ -16,7 +16,7 @@ class AlterTableProducts extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->tinyInteger('new')->default(0)->after('price');
             $table->tinyInteger('hit')->default(0)->after('new');
-            $table->tinyInteger('recommened')->default(0)->after('hit');
+            $table->tinyInteger('recommend')->default(0)->after('hit');
         });
     }
 

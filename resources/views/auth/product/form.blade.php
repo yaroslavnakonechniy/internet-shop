@@ -25,9 +25,7 @@
                 @csrf
                 <div class="input-group row">
                     <label for="code" class="col-sm-2 col-form-label">Код: </label>
-                    @error('code')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
+                    @include('auth.layouts.error', ['fieldName' => 'code'])
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="code" id="code"
                                value="{{old('code', isset($product) ? $product->code : null)}}">
@@ -36,9 +34,7 @@
                 <br>
                 <div class="input-group row">
                     <label for="name" class="col-sm-2 col-form-label">Название: </label>
-                    @error('name')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
+                    @include('auth.layouts.error', ['fieldName' => 'name'])
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="name" id="name"
                                value="@isset($product){{ $product->name }}@endisset">
@@ -47,9 +43,7 @@
                 <br>
                 <div class="input-group row">
                     <label for="category_id" class="col-sm-2 col-form-label">Категория: </label>
-                    @error('category_id')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
+                    @include('auth.layouts.error', ['fieldName' => 'category_id'])
                     <div class="col-sm-6">
                         <select name="category_id" id="category_id" class="form-control">
                             @foreach($categories as $category)
@@ -67,9 +61,7 @@
                 <br>
                 <div class="input-group row">
                     <label for="description" class="col-sm-2 col-form-label">Описание: </label>
-                    @error('description')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
+                    @include('auth.layouts.error', ['fieldName' => 'description'])
                     <div class="col-sm-6">
 								<textarea name="description" id="description" cols="72"
                                           rows="7">@isset($product){{ $product->description }}@endisset</textarea>
@@ -87,14 +79,33 @@
                 <br>
                 <div class="input-group row">
                     <label for="price" class="col-sm-2 col-form-label">Цена: </label>
-                    @error('price')
-                        <div class="alert alert-danger">{{$message}}</div>
-                    @enderror
+                    @include('auth.layouts.error', ['fieldName' => 'price'])
                     <div class="col-sm-2">
                         <input type="text" class="form-control" name="price" id="price"
                                value="@isset($product){{ $product->price }}@endisset">
                     </div>
                 </div>
+                <br>
+                    @foreach(
+                        [
+                        "new" => "новий",
+                        "hit" => "хіт",
+                        "recommend" => "рекомендуючі"
+                    ] as $field => $title)
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="code" class="col-sm-10 col-form-label">{{$title}}: </label>
+                            <input type="checkbox" class="form-control" name="{{$field}}" id="{{$field}}"
+                               
+                               @if(isset($product) && $product->$field === 1)
+                                    checked="checked"
+                                @endif
+                            >
+                            </div>
+                    </div>
+                    <br>
+                    @endforeach
+                
                 <button class="btn btn-success">Сохранить</button>
             </div>
         </form>
